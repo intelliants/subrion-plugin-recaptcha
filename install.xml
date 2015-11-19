@@ -4,10 +4,10 @@
 	<summary>ReCaptcha functionality on pages with forms</summary>
 	<author>Intelliants LLC</author>
 	<contributor>Intelliants LLC</contributor>
-	<version>3.2.1</version>
-	<date>2015-03-13</date>
+	<version>3.2.2</version>
+	<date>2015-11-19</date>
 	<category>captchas</category>
-	<compatibility>3.2.6</compatibility>
+	<compatibility>4.0.0</compatibility>
 
 	<config group="miscellaneous" type="divider">ReCaptcha</config>
 	<config group="miscellaneous" name="recaptcha_publickey" description="ReCaptcha site key" type="text"><![CDATA[]]></config>

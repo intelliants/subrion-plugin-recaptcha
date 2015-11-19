@@ -1,0 +1,1 @@
+Allows administrators to use reCaptcha validation instead of default captcha functionality.
