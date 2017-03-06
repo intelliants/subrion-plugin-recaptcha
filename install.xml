@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<plugin name="recaptcha">
+<module type="plugin" name="recaptcha">
 	<title>ReCaptcha</title>
 	<summary>ReCaptcha functionality on pages with forms</summary>
 	<author>Intelliants LLC</author>
 	<contributor>Intelliants LLC</contributor>
-	<version>3.2.2</version>
-	<date>2015-11-19</date>
-	<category>captchas</category>
-	<compatibility>4.0.0</compatibility>
+	<version>4.1.0</version>
+	<date>2017-03-06</date>
+	<category>captcha</category>
+	<compatibility>4.1</compatibility>
 
 	<config group="miscellaneous" type="divider">ReCaptcha</config>
 	<config group="miscellaneous" name="recaptcha_publickey" description="ReCaptcha site key" type="text"><![CDATA[]]></config>
@@ -17,4 +17,4 @@
 	<phrases>
 		<phrase category="common" key="recaptcha_set_configuration">To use reCAPTCHA you must get an API key from https://www.google.com/recaptcha/admin</phrase>
 	</phrases>
-</plugin>
+</module>
