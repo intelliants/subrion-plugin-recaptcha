@@ -47,7 +47,7 @@ class iaCaptcha extends abstractCore
 
 		if ($this->_privateKey)
 		{
-			$this->reCaptcha = new \ReCaptcha\ReCaptcha($this->_privateKey);
+			$this->reCaptcha = new \ReCaptcha\ReCaptcha($this->_privateKey, new \ReCaptcha\RequestMethod\CurlPost());
 		}
 	}
 
