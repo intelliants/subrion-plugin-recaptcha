@@ -39,7 +39,7 @@ class iaCaptcha extends abstractCore
 	{
 		parent::init();
 
-		require_once dirname(__FILE__) . IA_DS . 'recaptchalib.php';
+		require_once dirname(__FILE__) . IA_DS . '../src/autoload.php';
 
 		$this->_publicKey = $this->iaCore->get('recaptcha_publickey');
 		$this->_privateKey = $this->iaCore->get('recaptcha_privatekey');
@@ -47,7 +47,7 @@ class iaCaptcha extends abstractCore
 
 		if ($this->_privateKey)
 		{
-			$this->reCaptcha = new ReCaptcha($this->_privateKey);
+			$this->reCaptcha = new \ReCaptcha\ReCaptcha($this->_privateKey);
 		}
 	}
 
@@ -76,9 +76,9 @@ CODE;
 	{
 		if (!empty($_POST["g-recaptcha-response"]))
 		{
-			$response = $this->reCaptcha->verifyResponse($_SERVER["REMOTE_ADDR"], $_POST["g-recaptcha-response"]);
+			$response = $this->reCaptcha->verify($_POST["g-recaptcha-response"], $_SERVER["REMOTE_ADDR"]);
 
-			if ($response != null && $response->success)
+			if ($response != null && $response->isSuccess())
 			{
 				return true;
 			}
