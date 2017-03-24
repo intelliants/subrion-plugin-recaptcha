@@ -53,21 +53,38 @@ class iaCaptcha extends abstractCore
 
     public function getImage()
     {
+        static $loaded;
+
         if (!$this->_publicKey || !$this->_privateKey) {
             return iaLanguage::get('recaptcha_set_configuration');
         }
 
-        $theme = '';
+        $params = ['sitekey' => $this->_publicKey];
         if ('light' != $this->iaCore->get('recaptcha_theme')) {
-            $theme = ' data-theme="' . $this->iaCore->get('recaptcha_theme') . '"';
+            $params['theme'] = $this->iaCore->get('recaptcha_theme');
         }
 
-        $code = <<<CODE
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<div class="g-recaptcha" data-sitekey="{$this->_publicKey}"{$theme}></div>
-CODE;
+        $params = json_encode($params);
 
-        return $code;
+        $output = '<div class="js-recaptcha-ph"></div>';
+
+        if (!$loaded) {
+            $output.= <<<OUTPUT
+<script>
+var recaptchaCallback = function() {
+    var c = document.querySelectorAll('.js-recaptcha-ph');
+    console.log(c);
+    for (var i = 0, l = c.length; i < l; i++) {
+        grecaptcha.render(c[i],{$params});
+    }
+};
+</script>
+<script src="https://www.google.com/recaptcha/api.js?render=explicit&amp;onload=recaptchaCallback" async defer></script>
+OUTPUT;
+            $loaded = true;
+        }
+
+        return $output;
     }
 
     public function validate()
@@ -76,8 +93,8 @@ CODE;
             return true;
         }
 
-        if (!empty($_POST["g-recaptcha-response"])) {
-            $response = $this->reCaptcha->verify($_POST["g-recaptcha-response"], $_SERVER["REMOTE_ADDR"]);
+        if (!empty($_POST['g-recaptcha-response'])) {
+            $response = $this->reCaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
 
             if ($response != null && $response->isSuccess()) {
                 return true;
