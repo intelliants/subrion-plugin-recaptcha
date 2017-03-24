@@ -24,6 +24,4 @@
  *
  ******************************************************************************/
 
-$iaCaptcha = $iaCore->factoryPlugin('recaptcha', iaCore::FRONT, 'captcha');
-
-echo $iaCaptcha->getImage();
+echo $iaCore->factoryPlugin('recaptcha', iaCore::FRONT, 'captcha')->getImage();

@@ -73,7 +73,6 @@ class iaCaptcha extends abstractCore
 <script>
 var recaptchaCallback = function() {
     var c = document.querySelectorAll('.js-recaptcha-ph');
-    console.log(c);
     for (var i = 0, l = c.length; i < l; i++) {
         grecaptcha.render(c[i],{$params});
     }
