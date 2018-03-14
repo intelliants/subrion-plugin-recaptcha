@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <module type="plugin" name="recaptcha">
-	<title>ReCaptcha</title>
-	<summary>ReCaptcha functionality on pages with forms</summary>
-	<author>Intelliants LLC</author>
-	<contributor>Intelliants LLC</contributor>
-	<version>4.1.2</version>
-	<date>2017-03-24</date>
-	<category>captcha</category>
-	<compatibility>4.1</compatibility>
+    <title>ReCaptcha</title>
+    <summary>ReCaptcha functionality on pages with forms</summary>
+    <author>Intelliants LLC</author>
+    <contributor>Intelliants LLC</contributor>
+    <version>4.2.0</version>
+    <date>2018-03-14</date>
+    <category>captcha</category>
+    <compatibility>4.2</compatibility>
 
-	<config group="miscellaneous" type="divider">ReCaptcha</config>
-	<config group="miscellaneous" name="recaptcha_publickey" description="ReCaptcha site key" type="text"><![CDATA[]]></config>
-	<config group="miscellaneous" name="recaptcha_privatekey" description="ReCaptcha secret key" type="text"><![CDATA[]]></config>
-	<config group="miscellaneous" name="recaptcha_theme" description="reCaptcha theme" type="select" values="light,dark">light</config>
+    <config group="miscellaneous" type="divider">ReCaptcha</config>
+    <config group="miscellaneous" name="recaptcha_publickey" description="ReCaptcha site key" type="text"><![CDATA[]]></config>
+    <config group="miscellaneous" name="recaptcha_privatekey" description="ReCaptcha secret key" type="text"><![CDATA[]]></config>
+    <config group="miscellaneous" name="recaptcha_theme" description="reCaptcha theme" type="select" values="light,dark">light</config>
 
-	<phrases>
-		<phrase category="common" key="recaptcha_set_configuration">To use reCAPTCHA you must get an API key from https://www.google.com/recaptcha/admin</phrase>
-	</phrases>
+    <phrases>
+        <phrase category="common" key="recaptcha_set_configuration">To use reCAPTCHA you must get an API key from https://www.google.com/recaptcha/admin</phrase>
+    </phrases>
 </module>

@@ -2,7 +2,7 @@
 /******************************************************************************
  *
  * Subrion - open source content management system
- * Copyright (C) 2017 Intelliants, LLC <https://intelliants.com>
+ * Copyright (C) 2018 Intelliants, LLC <https://intelliants.com>
  *
  * This file is part of Subrion.
  *
@@ -24,4 +24,4 @@
  *
  ******************************************************************************/
 
-echo $iaCore->factoryPlugin('recaptcha', iaCore::FRONT, 'captcha')->getImage();
+echo $iaCore->factoryModule('captcha', IA_CURRENT_MODULE, iaCore::FRONT)->getImage();
